@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
 
-                    SizedBox(height: 50),
+                    SizedBox(height: 60),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     
                     // Login Box Widget
-                    SizedBox(height: 100),
+                    SizedBox(height: 80),
                     LoginBox(),
 
                     SizedBox(height: 175),

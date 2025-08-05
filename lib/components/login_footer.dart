@@ -9,7 +9,11 @@ class LoginFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      color: Colors.white,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0)
+      ),
+      
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
