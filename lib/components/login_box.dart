@@ -38,6 +38,7 @@ class LoginBox extends StatelessWidget {
             width: 260,
             color: Colors.blue[800]!,
             hoverColor: Colors.blue[900]!,
+            pressColor: Colors.blue[700]!,
           ),
 
           SizedBox(height: 5),
