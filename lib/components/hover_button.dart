@@ -8,6 +8,7 @@ class HoverButton extends StatefulWidget {
   final double width;
   final Color color;
   final Color hoverColor;
+  final Color pressColor;
 
   const HoverButton({
     super.key,
@@ -17,6 +18,7 @@ class HoverButton extends StatefulWidget {
     required this.width,
     required this.color,
     required this.hoverColor,
+    required this.pressColor,
   });
 
   @override
@@ -25,9 +27,19 @@ class HoverButton extends StatefulWidget {
 
 class HoverButtonState extends State<HoverButton> {
   bool _isHovering = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
+    Color currentColor;
+    if (_isPressed) {
+      currentColor = widget.pressColor;
+    } else if (_isHovering) {
+      currentColor = widget.hoverColor;
+    } else {
+      currentColor = widget.color;
+    }
+
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => _isHovering = true),
@@ -35,18 +47,21 @@ class HoverButtonState extends State<HoverButton> {
      
       
       child: GestureDetector(
-        onTap: () {
+        onTapDown: (_) => setState(() => _isPressed = true),
+        onTapUp: (_) {
+          setState(() => _isPressed = false);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AccountsPage())
+            MaterialPageRoute(builder: (context) => AccountsPage()),
           );
         },
+        onTapCancel: () => setState(() => _isPressed = false),
         
         child: Container(
           height: widget.height,
           width: widget.width,
           decoration: BoxDecoration(
-              color: _isHovering ? widget.hoverColor : widget.color,
+              color: currentColor,
               borderRadius: BorderRadius.circular(5.0),
           ),
           child: Center(
