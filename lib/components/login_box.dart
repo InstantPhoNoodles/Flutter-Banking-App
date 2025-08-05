@@ -1,3 +1,5 @@
+import 'package:banking_app/pages/accounts_page.dart';
+import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:flutter/material.dart';
 import 'package:banking_app/components/login_field.dart';
 import 'package:banking_app/components/hover_text.dart';
@@ -39,16 +41,33 @@ class LoginBox extends StatelessWidget {
             color: Colors.blue[800]!,
             hoverColor: Colors.blue[900]!,
             pressColor: Colors.blue[700]!,
+            route: AccountsPage(),
           ),
 
           SizedBox(height: 5),
 
           Row(
-            children: [HoverText(text: 'Forgot Username or Password?')],
+            children: [
+              HoverText(
+                text: 'Forgot Username or Password?',
+                color: Colors.blue[800]!,
+                hoverColor: Colors.purple[800]!,
+                pressColor: Colors.purple[400]!,
+                route: PlaceholderPage(),
+              ),
+            ],
           ),
 
           Row(
-            children: [HoverText(text: 'Not a Memember? Sign Up.')],
+            children: [
+              HoverText(
+                text: 'Not a Member? Sign Up.',
+                color: Colors.blue[800]!,
+                hoverColor: Colors.purple[800]!,
+                pressColor: Colors.purple[400]!,
+                route: PlaceholderPage(),
+              ),
+            ],
           ),
         ],
       ),

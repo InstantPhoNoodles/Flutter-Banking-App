@@ -1,4 +1,3 @@
-import 'package:banking_app/pages/accounts_page.dart';
 import 'package:flutter/material.dart';
 
 class HoverButton extends StatefulWidget {
@@ -9,6 +8,7 @@ class HoverButton extends StatefulWidget {
   final Color color;
   final Color hoverColor;
   final Color pressColor;
+  final Widget route;
 
   const HoverButton({
     super.key,
@@ -19,6 +19,7 @@ class HoverButton extends StatefulWidget {
     required this.color,
     required this.hoverColor,
     required this.pressColor,
+    required this.route
   });
 
   @override
@@ -52,7 +53,7 @@ class HoverButtonState extends State<HoverButton> {
           setState(() => _isPressed = false);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AccountsPage()),
+            MaterialPageRoute(builder: (context) => widget.route),
           );
         },
         onTapCancel: () => setState(() => _isPressed = false),
