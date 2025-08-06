@@ -14,15 +14,16 @@ class LoginField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       obscureText: obscureText,
+      cursorColor: Colors.blue,
 
       decoration: InputDecoration(
         hintText: hintText,
 
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black)
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue.shade900),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary),
         ),
       ),
     );

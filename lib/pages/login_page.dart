@@ -7,6 +7,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       backgroundColor: Colors.blue[800],
       body: Stack(
@@ -14,7 +16,9 @@ class LoginPage extends StatelessWidget {
           // Background image
           Positioned.fill(
             child: Image.asset(
-              'assets/images/login_page_bg.jpeg',
+              isDarkMode
+                ? 'assets/images/loginpage_bg_dark2.jpg'
+                : 'assets/images/loginpage_bg_light3.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -31,16 +35,15 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.landscape, size: 44, color: Colors.green[900]),
-                        Icon(Icons.park, size: 44, color: Colors.green[900]),
+                        Icon(Icons.landscape, size: 44, color: Colors.green.shade700),
+                        Icon(Icons.park, size: 44, color: Colors.green.shade700),
                       ],
                     ),
 
                     SizedBox(height: 20),
                     Text(
                       'Welcome to National Bank!',
-                      style: TextStyle(fontSize: 24,
-                      color: Colors.white),
+                      style: TextStyle(fontSize: 24, color: Colors.white),
                     ),
                     
                     // Login Box Widget

@@ -10,7 +10,7 @@ class LoginFooter extends StatelessWidget {
     return Container(
       height: 200,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(10.0)
       ),
       
@@ -23,24 +23,24 @@ class LoginFooter extends StatelessWidget {
             children: [
               HoverText(
                 text: 'Open an Account',
-                color: Colors.blue[800]!,
-                hoverColor: Colors.purple[800]!,
+                color: Theme.of(context).colorScheme.secondary,
+                hoverColor: Theme.of(context).colorScheme.tertiary,
                 pressColor: Colors.purple[400]!,
                 route: PlaceholderPage(),
               ),
               Text('  |  '),
               HoverText(
                 text: 'Privacy',
-                color: Colors.blue[800]!,
-                hoverColor: Colors.purple[800]!,
+                color: Theme.of(context).colorScheme.secondary,
+                hoverColor: Theme.of(context).colorScheme.tertiary,
                 pressColor: Colors.purple[400]!,
                 route: PlaceholderPage(),
               ),
               Text('  |  '),
               HoverText(
                 text: 'Questions',
-                color: Colors.blue[800]!,
-                hoverColor: Colors.purple[800]!,
+                color: Theme.of(context).colorScheme.secondary,
+                hoverColor: Theme.of(context).colorScheme.tertiary,
                 pressColor: Colors.purple[400]!,
                 route: PlaceholderPage(),
               ),

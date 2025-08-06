@@ -14,7 +14,7 @@ class LoginBox extends StatelessWidget {
       width: 300,
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(10.0)
       ),
 
@@ -50,8 +50,8 @@ class LoginBox extends StatelessWidget {
             children: [
               HoverText(
                 text: 'Forgot Username or Password?',
-                color: Colors.blue[800]!,
-                hoverColor: Colors.purple[800]!,
+                color: Theme.of(context).colorScheme.secondary,
+                hoverColor: Theme.of(context).colorScheme.tertiary,
                 pressColor: Colors.purple[400]!,
                 route: PlaceholderPage(),
               ),
@@ -62,8 +62,8 @@ class LoginBox extends StatelessWidget {
             children: [
               HoverText(
                 text: 'Not a Member? Sign Up.',
-                color: Colors.blue[800]!,
-                hoverColor: Colors.purple[800]!,
+                color: Theme.of(context).colorScheme.secondary,
+                hoverColor: Theme.of(context).colorScheme.tertiary,
                 pressColor: Colors.purple[400]!,
                 route: PlaceholderPage(),
               ),

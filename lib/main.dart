@@ -1,3 +1,4 @@
+import 'package:banking_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 
@@ -14,6 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'National Bank',
       debugShowCheckedModeBanner: false,
       home: const LoginPage(),
+      theme: lightMode,
+      darkTheme: darkMode,
     );
   }
 }
