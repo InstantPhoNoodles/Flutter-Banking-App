@@ -1,7 +1,8 @@
+import 'package:banking_app/pages/accounts_page.dart';
 import 'package:banking_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
-import 'pages/accounts_page.dart';
+//import 'pages/accounts_page.dart';
 
 void main() {
   runApp(const MyApp());

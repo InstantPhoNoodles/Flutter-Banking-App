@@ -12,14 +12,17 @@ class BankAccountBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
+      width: double.infinity,
 
       decoration: BoxDecoration(
-        color: Colors.blue[800],
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+        border: Border.all(color: Colors.blue[800]!, width: 2.0),
+        borderRadius: BorderRadius.circular(10),
       ),
 
-      child: Center(
-        child: Text(text, style: TextStyle(color: Colors.white)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(text, style: TextStyle(color: Colors.black)),
       ),
     );
   }
