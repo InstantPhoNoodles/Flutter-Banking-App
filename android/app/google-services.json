@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "894968399503",
+    "project_id": "flutter-banking-app-f137d",
+    "storage_bucket": "flutter-banking-app-f137d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894968399503:android:c8a461e3c1a92e21b152fa",
+        "android_client_info": {
+          "package_name": "com.example.banking_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbstL0t3UGgjoTiuWTzEb_O7U8w8-hTe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
