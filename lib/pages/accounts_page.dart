@@ -1,5 +1,9 @@
-import 'package:banking_app/components/bank_account.dart';
+import 'package:banking_app/components/account_box.dart';
+import 'package:banking_app/components/accounts_block.dart';
+import 'package:banking_app/components/accounts_header.dart';
 import 'package:banking_app/components/login_footer.dart';
+import 'package:banking_app/pages/account_info_page.dart';
+import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:flutter/material.dart';
 
 class AccountsPage extends StatelessWidget {
@@ -8,114 +12,104 @@ class AccountsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(250, 250, 250, 1.0),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(15.0),
             
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-            
+
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // Accounts Page Header 
+                AccountsHeader(),
 
-                  children: [
-                    Icon(Icons.help_outline, size: 36, color: Colors.blue[800]),
-                    Icon(Icons.landscape, size: 48, color: Colors.blue[800]),
-                    Icon(Icons.account_circle_outlined, size: 36, color: Colors.blue[800]),
-                  ],
-                ),
-                SizedBox(height: 20),
-
-                Divider(
-                  color: Colors.blue[800],       // Line color
-                  thickness: 2,             // Line thickness
-                  indent: 5,               // Left spacing
-                  endIndent: 5,            // Right spacing
-                ),
-                SizedBox(height: 20),
-
+                // Accounts Section Header
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                   children: [
                     Text('Accounts', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600)),
-                    Icon(Icons.arrow_drop_down_circle_outlined, size: 36, color: Colors.blue[800]),
+
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlaceholderPage()),
+                        );
+                      },
+                      icon: Icon(Icons.arrow_drop_down_circle_outlined, size: 28, color: Colors.blue[800]),
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
 
-                Text('Bank Accounts (2)'),
+                // Regular Bank Accounts Block
+                Text('Bank Accounts (2)', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
-                
-                Container(
-                  width: double.infinity,
-
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.blue[800]!, width: 2.0),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      
-                      children: [
-                        Text('Checkings', style: TextStyle(fontSize: 18)),
-                        Text('\$123.00', style: TextStyle(fontSize: 24)),
-                        Text('Available Balance', style: TextStyle(fontSize: 12)),
-                        Divider(
-                          color: Colors.grey,       // Line color
-                          thickness: 2,             // Line thickness
-                          indent: 5,               // Left spacing
-                          endIndent: 5,            // Right spacing
-                        ),
-                        Text('Savings', style: TextStyle(fontSize: 18)),
-                        Text('\$1230.00', style: TextStyle(fontSize: 24)),
-                        Text('Available Balance', style: TextStyle(fontSize: 12)),
-                      ],
-                    ),
-                  ),
+                AccountBlock(
+                  account1: AccountBox(name: 'Checkings - (...1324)', balance: '\$123.00', route: AccountInfoPage(),),
+                  account2: AccountBox(name: 'Savings - (...1434)', balance: '\$1230.00', route: AccountInfoPage(),),
                 ),
                 SizedBox(height: 20),
 
-                Text('Credit Cards (2)'),
+                // Credit Card Accounts Block
+                Text('Credit Cards (2)', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
-                
+                AccountBlock(
+                  account1: AccountBox(name: 'Visa Credit Card - (...14845)', balance: '\$12.30', route: AccountInfoPage(),),
+                  account2: AccountBox(name: 'MasterCard Credit Card - (...2488)', balance: '\$1.23', route: AccountInfoPage(),),
+                ),
+                SizedBox(height: 20),
 
-                Container(
-                  width: double.infinity,
+                Text('Explore More of Our Products', style: TextStyle(fontSize: 18)),
+                SizedBox(height: 20),
 
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.blue[800]!, width: 2.0),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 200,
+                      width: 75,
                       
-                      children: [
-                        Text('Visa Credit Card', style: TextStyle(fontSize: 18)),
-                        Text('\$12.30', style: TextStyle(fontSize: 24)),
-                        Text('Current Balance', style: TextStyle(fontSize: 12)),
-                        Divider(
-                          color: Colors.grey,       // Line color
-                          thickness: 2,             // Line thickness
-                          indent: 5,               // Left spacing
-                          endIndent: 5,            // Right spacing
-                        ),
-                        Text('MasterCard Credit Card', style: TextStyle(fontSize: 18)),
-                        Text('\$1.23', style: TextStyle(fontSize: 24)),
-                        Text('Current Balance', style: TextStyle(fontSize: 12)),
-                      ],
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue[800]!, width: 2.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  ),
+                    Container(
+                      height: 200,
+                      width: 75,
+                      
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue[800]!, width: 2.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    Container(
+                      height: 200,
+                      width: 75,
+                      
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue[800]!, width: 2.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    Container(
+                      height: 200,
+                      width: 75,
+                      
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue[800]!, width: 2.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ],
                 ),
 
                 LoginFooter(),
