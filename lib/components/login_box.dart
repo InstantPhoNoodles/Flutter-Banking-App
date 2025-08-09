@@ -1,12 +1,36 @@
 import 'package:banking_app/pages/accounts_page.dart';
 import 'package:banking_app/pages/placeholder_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:banking_app/components/login_field.dart';
 import 'package:banking_app/components/hover_text.dart';
 import 'package:banking_app/components/hover_button.dart';
 
 class LoginBox extends StatelessWidget {
-  const LoginBox({super.key});
+  LoginBox({super.key});
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void userSignIn(BuildContext context) async {
+    try {
+      // When user presses sign in button, check that it is a valid login credential
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      // If login is valid, navigate to Accounts Page
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AccountsPage()),
+      );
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Sign-in failed')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +49,11 @@ class LoginBox extends StatelessWidget {
           SizedBox(height: 20),
 
           // Username Input Field
-          LoginField(hintText: 'Username', obscureText: false),
+          LoginField(controller: emailController, hintText: 'Username', obscureText: false),
           SizedBox(height: 5),
 
           // Password Input Field
-          LoginField(hintText: 'Password', obscureText: true),
+          LoginField(controller: passwordController, hintText: 'Password', obscureText: true),
           SizedBox(height: 10),
 
           // Sign in Button Widget
@@ -41,7 +65,7 @@ class LoginBox extends StatelessWidget {
             color: Colors.blue[800]!,
             hoverColor: Colors.blue[900]!,
             pressColor: Colors.blue[700]!,
-            route: AccountsPage(),
+            ontap: () => userSignIn(context)
           ),
 
           SizedBox(height: 5),

@@ -8,7 +8,7 @@ class HoverButton extends StatefulWidget {
   final Color color;
   final Color hoverColor;
   final Color pressColor;
-  final Widget route;
+  final Function()? ontap;
 
   const HoverButton({
     super.key,
@@ -19,7 +19,7 @@ class HoverButton extends StatefulWidget {
     required this.color,
     required this.hoverColor,
     required this.pressColor,
-    required this.route
+    required this.ontap
   });
 
   @override
@@ -48,14 +48,9 @@ class HoverButtonState extends State<HoverButton> {
      
       
       child: GestureDetector(
+        onTap: widget.ontap,
         onTapDown: (_) => setState(() => _isPressed = true),
-        onTapUp: (_) {
-          setState(() => _isPressed = false);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => widget.route),
-          );
-        },
+        onTapUp: (_) => setState(() => _isPressed = false),
         onTapCancel: () => setState(() => _isPressed = false),
         
         child: Container(
