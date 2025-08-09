@@ -65,7 +65,7 @@ class LoginBox extends StatelessWidget {
             color: Colors.blue[800]!,
             hoverColor: Colors.blue[900]!,
             pressColor: Colors.blue[700]!,
-            ontap: () => userSignIn(context)
+            ontap: () => userSignIn(context),
           ),
 
           SizedBox(height: 5),

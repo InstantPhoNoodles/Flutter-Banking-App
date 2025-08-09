@@ -1,3 +1,4 @@
+import 'package:banking_app/pages/accounts_page.dart';
 import 'package:banking_app/pages/authentication_page.dart';
 import 'package:banking_app/theme/theme.dart';
 import 'package:flutter/material.dart';
