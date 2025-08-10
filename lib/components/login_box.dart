@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:banking_app/components/login_field.dart';
 import 'package:banking_app/components/hover_text.dart';
-import 'package:banking_app/components/hover_button.dart';
+import 'package:banking_app/components/signin_button.dart';
 
 class LoginBox extends StatelessWidget {
   LoginBox({super.key});
@@ -57,7 +57,7 @@ class LoginBox extends StatelessWidget {
           SizedBox(height: 10),
 
           // Sign in Button Widget
-          HoverButton(
+          SigninButton(
             text: 'Sign In',
             textStyle: TextStyle(color: Colors.white),
             height: 50,

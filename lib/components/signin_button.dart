@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HoverButton extends StatefulWidget {
+class SigninButton extends StatefulWidget {
   final String text;
   final TextStyle textStyle;
   final double height;
@@ -10,7 +10,7 @@ class HoverButton extends StatefulWidget {
   final Color pressColor;
   final Function()? ontap;
 
-  const HoverButton({
+  const SigninButton({
     super.key,
     required this.text,
     required this.textStyle,
@@ -23,10 +23,10 @@ class HoverButton extends StatefulWidget {
   });
 
   @override
-  HoverButtonState createState() => HoverButtonState();
+  SigninButtonState createState() => SigninButtonState();
 }
 
-class HoverButtonState extends State<HoverButton> {
+class SigninButtonState extends State<SigninButton> {
   bool _isHovering = false;
   bool _isPressed = false;
 
