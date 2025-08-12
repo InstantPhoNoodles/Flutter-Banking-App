@@ -9,6 +9,7 @@ class AccountsHeader extends StatelessWidget {
   void userSignOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
+      // ignore: use_build_context_synchronously
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
     );
@@ -22,35 +23,54 @@ class AccountsHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
           children: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PlaceholderPage()),
-                );
-              },
-              icon: Icon(Icons.help_outline, size: 28, color: Colors.blue[800]),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlaceholderPage()),
+                    );
+                  },
+                  icon: Icon(Icons.help_outline, size: 28, color: Colors.blue[800]),
+                ),
+                
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlaceholderPage()),
+                    );
+                  },
+                  icon: Icon(Icons.mark_chat_unread_outlined, size: 28, color: Colors.blue[800]),
+                ),
+              ],
             ),
             
             Icon(Icons.landscape, size: 48, color: Colors.blue[800]),
             
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PlaceholderPage()),
-                );
-              },
-              icon: Icon(Icons.account_circle_outlined, size: 28, color: Colors.blue[800]),
-            ),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlaceholderPage()),
+                    );
+                  },
+                  icon: Icon(Icons.account_circle_outlined, size: 28, color: Colors.blue[800]),
+                ),
 
-            IconButton(
-              onPressed: () => userSignOut(context),
-              icon: Icon(Icons.logout_outlined, size: 28, color: Colors.blue[800]),
+                IconButton(
+                  onPressed: () => userSignOut(context),
+                  icon: Icon(Icons.logout_outlined, size: 28, color: Colors.blue[800]),
+                ),
+              ],
             ),
           ],
         ),
         SizedBox(height: 10),
+
         Divider(
           color: Colors.blue[800],
           thickness: 2,

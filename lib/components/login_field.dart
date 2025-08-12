@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Class that formats login page input fields for email and password.
 class LoginField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;

@@ -1,17 +1,22 @@
 import 'package:banking_app/pages/accounts_page.dart';
 import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:banking_app/components/login_field.dart';
 import 'package:banking_app/components/hover_text.dart';
 import 'package:banking_app/components/signin_button.dart';
+import 'package:flutter/material.dart';
 
-class LoginBox extends StatelessWidget {
-  LoginBox({super.key});
+class LoginBox extends StatefulWidget {
+  const LoginBox({super.key});
 
+  @override
+  State<LoginBox> createState() => _LoginBoxState();
+}
+
+class _LoginBoxState extends State<LoginBox> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  
   void userSignIn(BuildContext context) async {
     try {
       // When user presses sign in button, check that it is a valid login credential
@@ -33,6 +38,13 @@ class LoginBox extends StatelessWidget {
   }
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: 300,
@@ -49,7 +61,7 @@ class LoginBox extends StatelessWidget {
           SizedBox(height: 20),
 
           // Username Input Field
-          LoginField(controller: emailController, hintText: 'Username', obscureText: false),
+          LoginField(controller: emailController, hintText: 'Email', obscureText: false),
           SizedBox(height: 5),
 
           // Password Input Field
@@ -67,31 +79,30 @@ class LoginBox extends StatelessWidget {
             pressColor: Colors.blue[700]!,
             ontap: () => userSignIn(context),
           ),
-
           SizedBox(height: 5),
 
-          Row(
-            children: [
-              HoverText(
-                text: 'Forgot Username or Password?',
-                color: Theme.of(context).colorScheme.secondary,
-                hoverColor: Theme.of(context).colorScheme.tertiary,
-                pressColor: Colors.purple[400]!,
-                route: PlaceholderPage(),
-              ),
-            ],
+          // Forgot login link. I don't remember why it is in a row.
+          Container(
+            alignment: Alignment.centerLeft,
+            child: HoverText(
+              text: 'Forgot Username or Password?',
+              color: Theme.of(context).colorScheme.secondary,
+              hoverColor: Theme.of(context).colorScheme.tertiary,
+              pressColor: Colors.purple[400]!,
+              route: PlaceholderPage(),
+            ),
           ),
-
-          Row(
-            children: [
-              HoverText(
-                text: 'Not a Member? Sign Up.',
-                color: Theme.of(context).colorScheme.secondary,
-                hoverColor: Theme.of(context).colorScheme.tertiary,
-                pressColor: Colors.purple[400]!,
-                route: PlaceholderPage(),
-              ),
-            ],
+          
+          // Sign up link. I don't remember why it is in a row.
+          Container(
+            alignment: Alignment.centerLeft,
+            child: HoverText(
+              text: 'Not a Member? Sign Up.',
+              color: Theme.of(context).colorScheme.secondary,
+              hoverColor: Theme.of(context).colorScheme.tertiary,
+              pressColor: Colors.purple[400]!,
+              route: PlaceholderPage(),
+            ),
           ),
         ],
       ),

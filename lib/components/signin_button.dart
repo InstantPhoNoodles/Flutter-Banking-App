@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Class that lets you format a button with hover and press
+/// functionality. Has an ontap field used to execute a function
+/// Currently on used for sign in button in login page.
 class SigninButton extends StatefulWidget {
   final String text;
   final TextStyle textStyle;

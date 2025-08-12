@@ -1,7 +1,9 @@
 import 'package:banking_app/pages/placeholder_page.dart';
-import 'package:flutter/material.dart';
 import 'package:banking_app/components/hover_text.dart';
+import 'package:flutter/material.dart';
 
+/// Class that builds a widget that gets displayed at the button of a page.
+/// Currently only used in the login page. Can be expanded.
 class LoginFooter extends StatelessWidget {
   const LoginFooter({super.key});
 
@@ -18,6 +20,8 @@ class LoginFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 20),
+
+          // Row widget with clickable text that routes to other pages.
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -1,6 +1,6 @@
 import 'package:banking_app/components/login_footer.dart';
-import 'package:flutter/material.dart';
 import 'package:banking_app/components/login_box.dart';
+import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -13,12 +13,12 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.blue[800],
       body: Stack(
         children: [
-          // Background image
+          // Background image. Light and Dark
           Positioned.fill(
             child: Image.asset(
               isDarkMode
-                ? 'assets/images/loginpage_bg_dark2.jpg'
-                : 'assets/images/loginpage_bg_light3.jpg',
+                ? 'assets/images/loginpage_bg_dark2.jpg'    // Dark mode login bg
+                : 'assets/images/loginpage_bg_light3.jpg',  // Light mode login in bg
               fit: BoxFit.cover,
             ),
           ),
@@ -27,16 +27,21 @@ class LoginPage extends StatelessWidget {
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
 
                   children: [
                     SizedBox(height: 60),
+
+                    // Login page logo
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [Icon(Icons.landscape, size: 48, color: Colors.blue[800])],
                     ),
 
+                    // Welcome message
                     SizedBox(height: 20),
                     Text(
                       'Welcome to National Bank!',
@@ -47,6 +52,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(height: 80),
                     LoginBox(),
 
+                    // Login footer
                     SizedBox(height: 175),
                     LoginFooter(),
                   ],
