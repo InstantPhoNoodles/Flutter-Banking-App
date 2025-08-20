@@ -49,8 +49,8 @@ class AccountsPage extends StatelessWidget {
                 Text('Bank Accounts (2)', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
                 AccountBlock(
-                  account1: AccountBox(name: 'Checkings - (...1324)', balance: '\$123.00', route: AccountInfoPage(),),
-                  account2: AccountBox(name: 'Savings - (...1434)', balance: '\$1230.00', route: AccountInfoPage(),),
+                  account1: AccountBox(name: 'Checkings - (...1324)', balance: '\$0.00', route: AccountInfoPage(),),
+                  account2: AccountBox(name: 'Savings - (...1434)', balance: '\$0.00', route: AccountInfoPage(),),
                 ),
                 SizedBox(height: 20),
 
@@ -58,20 +58,21 @@ class AccountsPage extends StatelessWidget {
                 Text('Credit Cards (2)', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
                 AccountBlock(
-                  account1: AccountBox(name: 'Visa Credit Card - (...14845)', balance: '\$12.30', route: AccountInfoPage(),),
-                  account2: AccountBox(name: 'MasterCard Credit Card - (...2488)', balance: '\$1.23', route: AccountInfoPage(),),
+                  account1: AccountBox(name: 'Visa Credit Card - (...14845)', balance: '\$0.00', route: AccountInfoPage(),),
+                  account2: AccountBox(name: 'MasterCard Credit Card - (...2488)', balance: '\$0.00', route: AccountInfoPage(),),
                 ),
                 SizedBox(height: 20),
 
                 Text('Explore More of Our Products', style: TextStyle(fontSize: 18)),
                 SizedBox(height: 20),
 
+                // Bank Services Products Ads
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      height: 200,
-                      width: 75,
+                      height: 150,
+                      width: 100,
                       
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -80,8 +81,8 @@ class AccountsPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 200,
-                      width: 75,
+                      height: 150,
+                      width: 100,
                       
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -90,8 +91,8 @@ class AccountsPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 200,
-                      width: 75,
+                      height: 150,
+                      width: 100,
                       
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -100,8 +101,8 @@ class AccountsPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 200,
-                      width: 75,
+                      height: 150,
+                      width: 100,
                       
                       decoration: BoxDecoration(
                         color: Colors.white,
