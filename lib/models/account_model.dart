@@ -1,7 +1,7 @@
 class Account {
-  final String name;
-  final String number;
+  final String accountName;
+  final String accountNumber;
   final double balance;
 
-  Account({required this.name, required this.number, required this.balance});
+  Account({required this.accountName, required this.accountNumber, required this.balance});
 }

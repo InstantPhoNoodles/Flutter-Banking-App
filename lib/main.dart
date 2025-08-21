@@ -1,4 +1,3 @@
-import 'package:banking_app/pages/account_info_page.dart';
 import 'package:banking_app/pages/accounts_page.dart';
 import 'package:banking_app/pages/authentication_page.dart';
 import 'package:banking_app/pages/login_page.dart';
@@ -6,7 +5,6 @@ import 'package:banking_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:banking_app/models/account_model.dart';
 
 
 void main() async {

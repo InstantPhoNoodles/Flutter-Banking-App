@@ -77,7 +77,7 @@ class AccountsHeader extends StatelessWidget {
           indent: 4,
           endIndent: 4,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 20),
       ],
     );
   }
