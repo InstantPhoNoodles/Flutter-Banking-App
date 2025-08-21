@@ -5,9 +5,20 @@ import 'package:banking_app/components/login_footer.dart';
 import 'package:banking_app/pages/account_info_page.dart';
 import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:flutter/material.dart';
+import 'package:banking_app/models/account_model.dart';
 
 class AccountsPage extends StatelessWidget {
-  const AccountsPage({super.key});
+  AccountsPage({super.key});
+
+  final List<Account> bankAccounts = [
+    Account(name: "Checkings", number: "(...1324)", balance: 1200.50),
+    Account(name: "Savings", number: "(...1434)", balance: 4500.75),
+  ];
+
+  final List<Account> creditCards = [
+    Account(name: "Visa Credit Card", number: "(...14845)", balance: 350.25),
+    Account(name: "MasterCard Credit Card", number: "(...2488)", balance: 1200.00),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,20 +57,36 @@ class AccountsPage extends StatelessWidget {
                 SizedBox(height: 20),
 
                 // Regular Bank Accounts Block
-                Text('Bank Accounts (2)', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text('Bank Accounts (${bankAccounts.length})', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
                 AccountBlock(
-                  account1: AccountBox(name: 'Checkings - (...1324)', balance: '\$0.00', route: AccountInfoPage(),),
-                  account2: AccountBox(name: 'Savings - (...1434)', balance: '\$0.00', route: AccountInfoPage(),),
+                  account1: AccountBox(
+                    name: '${bankAccounts[0].name} - ${bankAccounts[0].number}',
+                    balance: '\$${bankAccounts[0].balance.toStringAsFixed(2)}',
+                    route: AccountInfoPage(),
+                  ),
+                  account2: AccountBox(
+                    name: '${bankAccounts[1].name} - ${bankAccounts[1].number}',
+                    balance: '\$${bankAccounts[1].balance.toStringAsFixed(2)}',
+                    route: AccountInfoPage(),
+                  ),
                 ),
                 SizedBox(height: 20),
 
                 // Credit Card Accounts Block
-                Text('Credit Cards (2)', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text('Credit Cards (${creditCards.length})', style: TextStyle(fontWeight: FontWeight.w600)),
                 SizedBox(height: 5),
                 AccountBlock(
-                  account1: AccountBox(name: 'Visa Credit Card - (...14845)', balance: '\$0.00', route: AccountInfoPage(),),
-                  account2: AccountBox(name: 'MasterCard Credit Card - (...2488)', balance: '\$0.00', route: AccountInfoPage(),),
+                  account1: AccountBox(
+                    name: '${creditCards[0].name} - ${creditCards[0].number}',
+                    balance: '\$${creditCards[0].balance.toStringAsFixed(2)}',
+                    route: AccountInfoPage(),
+                  ),
+                  account2: AccountBox(
+                    name: '${creditCards[1].name} - ${creditCards[1].number}',
+                    balance: '\$${creditCards[1].balance.toStringAsFixed(2)}',
+                    route: AccountInfoPage(),
+                  ),
                 ),
                 SizedBox(height: 20),
 
