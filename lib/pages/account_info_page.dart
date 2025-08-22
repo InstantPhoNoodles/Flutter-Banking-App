@@ -1,4 +1,4 @@
-import 'package:banking_app/models/account_model.dart';
+import 'package:banking_app/models/account.dart';
 import 'package:flutter/material.dart';
 
 class AccountInfoPage extends StatelessWidget {

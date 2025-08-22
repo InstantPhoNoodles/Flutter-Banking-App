@@ -1,5 +1,5 @@
 import 'package:banking_app/components/account_box.dart';
-import 'package:banking_app/models/account_model.dart';
+import 'package:banking_app/models/account.dart';
 import 'package:banking_app/pages/account_info_page.dart';
 import 'package:flutter/material.dart';
 

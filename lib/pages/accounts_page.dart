@@ -3,7 +3,7 @@ import 'package:banking_app/components/accounts_header.dart';
 import 'package:banking_app/components/login_footer.dart';
 import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:flutter/material.dart';
-import 'package:banking_app/models/account_model.dart';
+import 'package:banking_app/models/account.dart';
 
 class AccountsPage extends StatelessWidget {
   AccountsPage({super.key});
