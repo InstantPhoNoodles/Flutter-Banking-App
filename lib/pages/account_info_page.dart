@@ -17,7 +17,7 @@ class AccountInfoPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
 
               children: [
-                Text(account.accountName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
+                Text("${account.accountName} - ${account.accountNumber}", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
                 SizedBox(height: 15),
 
                 // Account Info Box
@@ -51,6 +51,7 @@ class AccountInfoPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 250,
+                  padding: EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(color: Colors.blue[800]!, width: 2.0),

@@ -1,3 +1,4 @@
+import 'package:banking_app/components/account_transfer.dart';
 import 'package:banking_app/components/accounts_block.dart';
 import 'package:banking_app/components/accounts_header.dart';
 import 'package:banking_app/components/login_footer.dart';
@@ -6,21 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:banking_app/models/account.dart';
 
 class AccountsPage extends StatelessWidget {
-  AccountsPage({super.key});
-
-  final List<Account> bankAccounts = [
-    Account(accountName: "Checkings", accountNumber: "(...1324)", balance: 1275.50),
-    Account(accountName: "Savings", accountNumber: "(...1434)", balance: 4525.75),
-  ];
-
-  final List<Account> creditCards = [
-    Account(accountName: "Visa Credit Card", accountNumber: "(...14845)", balance: 50.25),
-    Account(accountName: "MasterCard Credit Card", accountNumber: "(...2488)", balance: 120.00),
-    Account(accountName: "MasterCard Credit Card", accountNumber: "(...3458)", balance: 20.45),
-  ];
+  const AccountsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Account> bankAccounts = [
+      Account(accountName: "Checkings", accountNumber: "(...1324)", balance: 1275.50),
+      Account(accountName: "Savings", accountNumber: "(...1434)", balance: 4525.75),
+    ];
+
+    final List<Account> creditCards = [
+      Account(accountName: "Visa Credit Card", accountNumber: "(...14845)", balance: 50.25),
+      Account(accountName: "MasterCard Credit Card", accountNumber: "(...2488)", balance: 120.00),
+      Account(accountName: "MasterCard Credit Card", accountNumber: "(...3458)", balance: 20.45),
+    ];
+
+    final List<Account> allAccounts = [...bankAccounts, ...creditCards];
+    
     return Scaffold(
       backgroundColor: Color.fromRGBO(250, 250, 250, 1.0),
       body: SafeArea(
@@ -67,20 +70,8 @@ class AccountsPage extends StatelessWidget {
                 AccountBlock(accounts: creditCards),
                 SizedBox(height: 20),
 
-                Text('Explore More of Our Products', style: TextStyle(fontSize: 18)),
+                AccountTransfer(allAccounts: allAccounts),
                 SizedBox(height: 20),
-
-                // Bank Services Products Ads
-                Container(
-                  height: 150,
-                  width: double.infinity,
-                  
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.blue[800]!, width: 2.0),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
 
                 LoginFooter(),
               ],

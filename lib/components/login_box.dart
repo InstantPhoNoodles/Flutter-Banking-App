@@ -3,7 +3,7 @@ import 'package:banking_app/pages/placeholder_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:banking_app/components/login_field.dart';
 import 'package:banking_app/components/hover_text.dart';
-import 'package:banking_app/components/signin_button.dart';
+import 'package:banking_app/components/flex_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginBox extends StatefulWidget {
@@ -69,14 +69,13 @@ class _LoginBoxState extends State<LoginBox> {
           SizedBox(height: 10),
 
           // Sign in Button Widget
-          SigninButton(
+          FlexButton(
             text: 'Sign In',
             textStyle: TextStyle(color: Colors.white),
             height: 50,
             width: 260,
             color: Colors.blue[800]!,
-            hoverColor: Colors.blue[900]!,
-            pressColor: Colors.blue[700]!,
+            pressColor: Colors.blue[900]!,
             ontap: () => userSignIn(context),
           ),
           SizedBox(height: 5),
