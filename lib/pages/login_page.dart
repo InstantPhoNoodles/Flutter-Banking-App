@@ -2,6 +2,8 @@ import 'package:banking_app/components/login_footer.dart';
 import 'package:banking_app/components/login_box.dart';
 import 'package:flutter/material.dart';
 
+// Login: test1@gmail.com - password1
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
