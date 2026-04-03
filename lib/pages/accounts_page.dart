@@ -46,17 +46,18 @@ class AccountsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 15),
 
                 // Regular Bank Accounts Block
                 Text('Bank Accounts (${provider.bankAccounts.length})',
-                    style: const TextStyle(fontWeight: FontWeight.w600)),
+                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
                 const SizedBox(height: 5),
                 AccountBlock(accounts: provider.bankAccounts),
                 const SizedBox(height: 20),
 
+                // Credit Card Accounts Block
                 Text('Credit Cards (${provider.creditCards.length})',
-                    style: const TextStyle(fontWeight: FontWeight.w600)),
+                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
                 const SizedBox(height: 5),
                 AccountBlock(accounts: provider.creditCards),
                 const SizedBox(height: 20),

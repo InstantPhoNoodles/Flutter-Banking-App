@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: lightMode,
       darkTheme: lightMode,
 
-      home: AccountsPage(),
+      home: AuthenticationPage(),
     );
   }
 }

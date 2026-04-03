@@ -78,12 +78,12 @@ class _AccountTransferState extends State<AccountTransfer> {
 
   @override
   Widget build(BuildContext context) {
-    final accounts = context.watch<AccountsProvider>().accounts.toList();
+    final accounts = context.watch<AccountsProvider>().bankAccounts.toList();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Make a Transfer', style: TextStyle(fontWeight: FontWeight.w600)),
+        Text('Make a Transfer', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
         SizedBox(height: 5),
 
         Container(

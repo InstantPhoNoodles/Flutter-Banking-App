@@ -20,14 +20,14 @@ class AccountsProvider extends ChangeNotifier {
     Account(
       accountName: 'Visa Credit Card',
       accountNumber: '(...1484)',
-      email: 'test2@gmail.com',
+      email: 'test1@gmail.com',
       type: AccountType.credit,
       balance: 50.00,
     ),
     Account(
       accountName: 'MasterCard Credit Card',
       accountNumber: '(...2488)',
-      email: 'test2@gmail.com',
+      email: 'test1@gmail.com',
       type: AccountType.credit,
       balance: 200.00,
     ),

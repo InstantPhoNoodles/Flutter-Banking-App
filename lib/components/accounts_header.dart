@@ -69,7 +69,7 @@ class AccountsHeader extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 5),
 
         Divider(
           color: Colors.blue[800],
@@ -77,7 +77,7 @@ class AccountsHeader extends StatelessWidget {
           indent: 4,
           endIndent: 4,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 5),
       ],
     );
   }
