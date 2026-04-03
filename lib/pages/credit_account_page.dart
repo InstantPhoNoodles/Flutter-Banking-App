@@ -1,5 +1,6 @@
 import 'package:banking_app/models/account.dart';
 import 'package:flutter/material.dart';
+import 'package:banking_app/components/pay_credit_box.dart';
 
 class CreditCardInfoPage extends StatelessWidget {
   final Account account;
@@ -45,6 +46,9 @@ class CreditCardInfoPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
+
+                PayCreditBox(creditAccount: account),
                 SizedBox(height: 20),
 
                 // Transaction Info Box
