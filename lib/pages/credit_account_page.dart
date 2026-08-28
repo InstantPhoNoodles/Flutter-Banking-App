@@ -1,14 +1,18 @@
-import 'package:banking_app/models/account.dart';
+import 'package:banking_app/providers/accounts_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:banking_app/components/pay_credit_box.dart';
+import 'package:provider/provider.dart';
 
 class CreditCardInfoPage extends StatelessWidget {
-  final Account account;
+  final String accountNumber;
   
-  const CreditCardInfoPage({super.key, required this.account});
+  const CreditCardInfoPage({super.key, required this.accountNumber});
 
   @override
   Widget build(BuildContext context) {
+    final account = context.watch<AccountsProvider>().accounts
+        .firstWhere((a) => a.accountNumber == accountNumber);
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(

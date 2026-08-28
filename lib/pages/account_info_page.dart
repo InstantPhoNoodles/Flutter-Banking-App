@@ -25,27 +25,30 @@ class AccountInfoPage extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.blue[800]!, width: 2.0),
-                    borderRadius: BorderRadius.circular(10),
+                    gradient: LinearGradient(
+                      colors: [Colors.blue[900]!, Color.fromARGB(255, 5, 40, 100)], // normal
+                      begin: AlignmentGeometry.topLeft,
+                      end: AlignmentGeometry.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
                   ),
 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Text('\$${account.balance.toStringAsFixed(2)}', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600)),
-                      Text('Available Balance', style: TextStyle(fontSize: 12)),
+                      Text('\$${account.balance.toStringAsFixed(2)}', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500, color: Colors.white)),
+                      Text('Available Balance', style: TextStyle(fontSize: 12, color: Colors.white)),
                       SizedBox(height: 25),
 
-                      Text('Account Details', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                      Text('Present Balance: \$${account.balance.toStringAsFixed(2)}'),
-                      Text('Account Number: ${account.accountNumber}'),
-                      Text('Routing Number: 32134588826939'),
+                      Text('Account Details', style: TextStyle(fontSize: 14, color: Colors.white)),
+                      Text('Present Balance: \$${account.balance.toStringAsFixed(2)}', style: TextStyle(fontSize: 14, color: Colors.white)),
+                      Text('Account Number: ${account.accountNumber}', style: TextStyle(fontSize: 14, color: Colors.white)),
+                      Text('Routing Number: 32134588826939', style: TextStyle(fontSize: 14, color: Colors.white)),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 15),
 
                 // Transaction Info Box
                 Container(

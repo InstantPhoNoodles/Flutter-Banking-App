@@ -1,8 +1,10 @@
+import 'package:banking_app/components/account_box.dart';
 import 'package:banking_app/components/account_transfer.dart';
-import 'package:banking_app/components/accounts_block.dart';
 import 'package:banking_app/components/accounts_header.dart';
 import 'package:banking_app/components/login_footer.dart';
-import 'package:banking_app/pages/placeholder_page.dart';
+import 'package:banking_app/models/account.dart';
+import 'package:banking_app/pages/account_info_page.dart';
+import 'package:banking_app/pages/credit_account_page.dart';
 import 'package:banking_app/providers/accounts_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,7 @@ class AccountsPage extends StatelessWidget {
               children: [
                 // Accounts Page Header 
                 AccountsHeader(),
+                const SizedBox(height: 20),
 
                 // Accounts Section Header
                 Row(
@@ -34,32 +37,25 @@ class AccountsPage extends StatelessWidget {
 
                   children: [
                     Text('Accounts', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600)),
-
-                    IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PlaceholderPage()),
-                        );
-                      },
-                      icon: Icon(Icons.arrow_drop_down_circle_outlined, size: 28, color: Colors.blue[800]),
-                    ),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10.0),
 
-                // Regular Bank Accounts Block
-                Text('Bank Accounts (${provider.bankAccounts.length})',
-                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-                const SizedBox(height: 5),
-                AccountBlock(accounts: provider.bankAccounts),
-                const SizedBox(height: 20),
-
-                // Credit Card Accounts Block
-                Text('Credit Cards (${provider.creditCards.length})',
-                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-                const SizedBox(height: 5),
-                AccountBlock(accounts: provider.creditCards),
+                // Accounts Block
+                Column(
+                  children: provider.accounts.map((account) => Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: AccountBox(
+                      name: account.accountName,
+                      balance: '\$${account.balance.toStringAsFixed(2)}',
+                      route: account.type == AccountType.credit
+                          ? CreditCardInfoPage(accountNumber: account.accountNumber)
+                          : AccountInfoPage(account: account),
+                      type: account.type,
+                      number: account.accountNumber,
+                    ),
+                  )).toList(),
+                ),
                 const SizedBox(height: 20),
 
                 AccountTransfer(),

@@ -57,7 +57,7 @@ class _PayCreditBoxState extends State<PayCreditBox> {
 
     if (success) {
       _showSnackbar(
-        'Paid \$${amount.toStringAsFixed(2)} toward ${_fromAccount!.accountName} toward ${widget.creditAccount.accountName}.',
+        'Paid \$${amount.toStringAsFixed(2)} from ${_fromAccount!.accountName} toward ${widget.creditAccount.accountName}.',
         success: true,
       );
       _reset();

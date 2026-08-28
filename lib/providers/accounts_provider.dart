@@ -61,6 +61,7 @@ class AccountsProvider extends ChangeNotifier {
 
     from.balance -= amount;
     to.balance += amount;
+    _saveAccounts();
     notifyListeners();
     return true;
   }
@@ -76,6 +77,7 @@ class AccountsProvider extends ChangeNotifier {
 
     from.balance -= amount;
     to.balance -= amount;
+    _saveAccounts();
     notifyListeners();
     return true;
   }
@@ -94,32 +96,32 @@ class AccountsProvider extends ChangeNotifier {
 
   List<Account> _defaultAccounts() => [
     Account(
-      accountName: 'Checkings',
-      accountNumber: '(...1324)',
+      accountName: 'College Checkings',
+      accountNumber: '1324',
       email: 'test1@gmail.com',
       type: AccountType.checking,
-      balance: 1000.00
+      balance: 500.00
     ),
     Account(
-      accountName: 'Savings',
-      accountNumber: '(...1434)',
+      accountName: 'Smart Savings',
+      accountNumber: '1434',
       email: 'test1@gmail.com',
       type: AccountType.savings,
       balance: 5000.00
     ),
     Account(
-      accountName: 'Visa Credit Card',
-      accountNumber: '(...1484)',
+      accountName: 'Prestige Visa',
+      accountNumber: '1484',
       email: 'test2@gmail.com',
       type: AccountType.credit,
-      balance: 75.00,
+      balance: 750.00,
     ),
     Account(
-      accountName: 'MasterCard Credit Card',
-      accountNumber: '(...2488)',
+      accountName: 'Wonder MasterCard',
+      accountNumber: '2488',
       email: 'test2@gmail.com',
       type: AccountType.credit,
-      balance: 100.00
+      balance: 250.00
     ),
   ];
 }

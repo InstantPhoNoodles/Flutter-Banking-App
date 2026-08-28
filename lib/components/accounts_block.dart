@@ -15,7 +15,7 @@ class AccountBlock extends StatelessWidget {
       width: double.infinity,
 
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue[800]!, width: 2),
+        border: Border.all(color: Colors.black, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
 
@@ -25,8 +25,10 @@ class AccountBlock extends StatelessWidget {
             name: '${account.accountName} - ${account.accountNumber}',
             balance: '\$${account.balance.toStringAsFixed(2)}',
             route: account.type == AccountType.credit
-                  ? CreditCardInfoPage(account: account)
+                  ? CreditCardInfoPage(accountNumber: account.accountNumber)
                   : AccountInfoPage(account: account),
+            type: account.type,
+            number: account.accountNumber,
           );
         }).toList(),
       ),

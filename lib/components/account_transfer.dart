@@ -83,7 +83,7 @@ class _AccountTransferState extends State<AccountTransfer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Make a Transfer', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+        Text('Quick Transfer', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20)),
         SizedBox(height: 5),
 
         Container(
@@ -97,50 +97,79 @@ class _AccountTransferState extends State<AccountTransfer> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('From:', style: TextStyle(fontWeight: FontWeight.w600)),
-              DropdownAccounts(
-                allAccounts: accounts,
-                selectedAccount: _fromAccount,
-                onChanged: (account) => setState(() => _fromAccount = account),
-              ),
-
-              Text('To:', style: TextStyle(fontWeight: FontWeight.w600)),
-              DropdownAccounts(
-                allAccounts: accounts,
-                selectedAccount: _toAccount,
-                onChanged: (account) => setState(() => _toAccount = account),
-              ),
-              SizedBox(height: 10),
-
               Row(
                 children: [
-                  Text('Transfer Amount:'),
-                  SizedBox(width: 5),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('From', style: TextStyle(fontWeight: FontWeight.w600)),
+                        DropdownAccounts(
+                          allAccounts: accounts,
+                          selectedAccount: _fromAccount,
+                          onChanged: (account) => setState(() => _fromAccount = account),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18.0, left: 4, right: 4),
+                    child: Icon(Icons.arrow_forward, color: Colors.blue[800]),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('To', style: TextStyle(fontWeight: FontWeight.w600)),
+                        DropdownAccounts(
+                          allAccounts: accounts,
+                          selectedAccount: _toAccount,
+                          onChanged: (account) => setState(() => _toAccount = account),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+
+              // Amount
+              Row(
+                children: [
+                  Text('Amount:', style: TextStyle(fontWeight: FontWeight.w600)),
+                  const SizedBox(width: 8),
                   MoneyInputField(controller: _amountController),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
-              FlexButton(
-                text: 'Submit',
-                textStyle: TextStyle(color: Colors.white),
-                height: 50,
-                width: double.infinity,
-                color: Colors.blue[800]!,
-                pressColor: Colors.blue[900]!,
-                ontap: _submit,
-              ),
-              SizedBox(height: 10),
-
-              FlexButton(
-                text: 'Cancel',
-                textStyle: TextStyle(color: Colors.blue[800]!),
-                height: 50,
-                width: double.infinity,
-                color: Colors.white,
-                hoverColor: Colors.white,
-                pressColor: Colors.blue[800]!,
-                ontap: _reset,
+              // Cancel / Submit
+              Row(
+                children: [
+                  Expanded(
+                    child: FlexButton(
+                      text: 'Cancel',
+                      textStyle: TextStyle(color: Colors.blue[800]!),
+                      height: 45,
+                      width: double.infinity,
+                      color: Colors.white,
+                      pressColor: Colors.blue[50]!,
+                      ontap: _reset,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: FlexButton(
+                      text: 'Submit',
+                      textStyle: TextStyle(color: Colors.white),
+                      height: 45,
+                      width: double.infinity,
+                      color: Colors.blue[800]!,
+                      pressColor: Colors.blue[900]!,
+                      ontap: _submit,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
